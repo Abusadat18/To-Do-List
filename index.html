@@ -99,13 +99,64 @@
           </div>
           <!-- Task Card Ends -->
         </div>
-        <!-- ADD TASK BUTTON INSIDE DISPLAY CTN -->
+        <!-- ADD TASK BUTTON INSIDE DISPLAY CTN STARTS-->
         <div class="project-addTask">
           <div>
             <img src="./img/add-normal.svg" alt="" width="30" height="30" />
           </div>
           <p>Add Task</p>
         </div>
+        <!-- ADD TASK BUTTON INSIDE DISPLAY CTN ENDS-->
+        <!-- ADD TASK FORM CTN STARTS-->
+        <div class="add-form">
+          <div class="add-task-name">
+            <input
+              type="text"
+              name=""
+              id="newTaskName"
+              class="newTaskName"
+              placeholder="Task Name"
+            />
+          </div>
+          <div class="add-task-description">
+            <textarea
+              name=""
+              id=""
+              cols=""
+              rows="4"
+              placeholder="Task Description"
+            ></textarea>
+          </div>
+          <div class="add-task-additionals">
+            <div class="add-task-additionals-sub-box1">
+              <div>
+                <label for="newDueDate">Due Date:</label>
+                <input type="date" name="" id="newDueDate" class="newDueDate" />
+              </div>
+              <div>
+                <select name="" id="">
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
+              <div class="add-new-note">
+                <img
+                  src="./img/add-note-btn.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+                <p>Add Notes</p>
+              </div>
+            </div>
+            <div class="add-task-additionals-sub-box2">
+              <button type="button">Cancel</button>
+              <button type="button">Add Task</button>
+            </div>
+          </div>
+        </div>
+        <!-- ADD TASK FORM CTN ENDS-->
       </div>
     </div>
   </body>
