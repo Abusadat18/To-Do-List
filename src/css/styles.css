@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+form,
+button,
+input,
+textarea,
+select {
+  font-family: "MyFont";
+  font-size: inherit;
+}
+
 :root {
   --PRIMARY-COLOR: #ed7d31;
   --SECONDARY-COLOR: #4f4a45;
@@ -18,7 +27,7 @@
 body {
   background-color: var(--WHITE-SHADE);
   font-family: "MyFont";
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .wrapping-ctn {
@@ -30,6 +39,8 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
+  background-color: var(--PRIMARY-COLOR);
+  height: 100vh;
 }
 
 .sidebar-header,
@@ -100,4 +111,55 @@ body {
 
 .project-addTask {
   display: flex;
+}
+
+/* Inside Display Ctn > project-addTask section ends */
+
+/* ADD TASK FORM CTN */
+.add-form {
+  border: 2px solid var(--SECONDARY-COLOR);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px 20px;
+  font-size: 16px;
+}
+
+.add-task-additionals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-task-additionals-sub-box1 {
+  display: flex;
+  align-items: center;
+}
+
+.add-new-note {
+  display: flex;
+}
+
+.add-task-additionals-sub-box2 {
+  display: flex;
+  gap: 20px;
+}
+
+.add-task-name > input[type="text"] {
+  width: 100%;
+}
+
+/* .add-task-description > input[type="text"] {
+  width: 100%;
+} */
+
+.add-task-description > textarea {
+  resize: none;
+  overflow: hidden;
+  width: 100%;
+}
+
+.add-new-note {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--SECONDARY-COLOR);
 }
