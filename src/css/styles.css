@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --PRIMARY-COLOR: #ed7d31;
+  --SECONDARY-COLOR: #4f4a45;
+  --WHITE-SHADE: #f6f1ee;
+}
+
+@font-face {
+  font-family: "MyFont";
+  src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+body {
+  background-color: var(--WHITE-SHADE);
+  font-family: "MyFont";
+  font-size: 22px;
+}
+
+.wrapping-ctn {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+/* SIDEBAR */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header,
+.sidebar-inbox,
+.sidebar-today,
+.sidebar-myProjects {
+  display: flex;
+}
+
+/* DISPLAY CONTAINER  */
+
+.display-ctn {
+  width: 900px;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inside Display Ctn > project-todos-ctn section starts */
+.project-todos-ctn {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-card {
+  border: 2px solid red;
+  display: grid;
+  grid-template-columns: 25px 1fr max-content;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.task-additionals {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notes {
+  display: flex;
+  align-items: center;
+}
+
+.priority {
+  display: flex;
+  align-items: center;
+}
+
+.task-dueDate {
+  display: flex;
+  align-items: center;
+}
+
+.task-card > .task-operation {
+  align-self: center;
+  display: flex;
+  padding: 10px;
+  gap: 20px;
+}
+
+/* Inside Display Ctn > project-todos-ctn section ends */
+
+/* Inside Display Ctn > project-addTask section starts */
+
+.project-addTask {
+  display: flex;
+}
