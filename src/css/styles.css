@@ -41,13 +41,54 @@ body {
   flex-direction: column;
   background-color: var(--PRIMARY-COLOR);
   height: 100vh;
+  padding: 15px;
+  gap: 10px;
+}
+
+.sidebar-header {
+  margin-bottom: 15px;
 }
 
 .sidebar-header,
 .sidebar-inbox,
-.sidebar-today,
+.sidebar-today {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .sidebar-myProjects {
   display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-myProjects > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar img {
+  border-radius: 50%;
+}
+
+.myProjects-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+}
+
+.project-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar-createProject {
+  display: flex;
+  justify-content: center;
+  border: 2px solid var(--SECONDARY-COLOR);
+  border-radius: 5px;
 }
 
 /* DISPLAY CONTAINER  */
@@ -57,18 +98,33 @@ body {
   justify-self: center;
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
+  gap: 10px;
+}
+
+.project-title {
+  margin-bottom: 20px;
 }
 
 /* Inside Display Ctn > project-todos-ctn section starts */
 .project-todos-ctn {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .task-card {
-  border: 2px solid red;
+  border: 2px solid var(--SECONDARY-COLOR);
+  border-radius: 5px;
   display: grid;
   grid-template-columns: 25px 1fr max-content;
+  padding: 10px 5px;
+}
+
+.task-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .task-info {
@@ -111,6 +167,9 @@ body {
 
 .project-addTask {
   display: flex;
+  align-items: center;
+  border: 2px solid var(--SECONDARY-COLOR);
+  border-radius: 5px;
 }
 
 /* Inside Display Ctn > project-addTask section ends */
@@ -122,6 +181,7 @@ body {
   flex-direction: column;
   padding: 10px 30px 20px;
   font-size: 16px;
+  gap: 10px;
 }
 
 .add-task-additionals {
@@ -130,27 +190,20 @@ body {
   align-items: center;
 }
 
-.add-task-additionals-sub-box1 {
+.add-task-additionals > div {
   display: flex;
   align-items: center;
-}
-
-.add-new-note {
-  display: flex;
-}
-
-.add-task-additionals-sub-box2 {
-  display: flex;
   gap: 20px;
+}
+
+.form-newNote-btn {
+  display: flex;
+  align-items: center;
 }
 
 .add-task-name > input[type="text"] {
   width: 100%;
 }
-
-/* .add-task-description > input[type="text"] {
-  width: 100%;
-} */
 
 .add-task-description > textarea {
   resize: none;
@@ -158,8 +211,20 @@ body {
   width: 100%;
 }
 
-.add-new-note {
-  display: flex;
-  align-items: center;
+.form-cancel-btn,
+.form-add-btn,
+.form-newNote-btn,
+.form-setPriority {
+  padding: 5px;
+  width: 110px;
+  border-radius: 5px;
   border: 2px solid var(--SECONDARY-COLOR);
+}
+
+.form-setDueDate > input {
+  padding: 4px;
+}
+
+.form-cancel-btn {
+  background-color: var(--PRIMARY-COLOR);
 }
