@@ -1,10 +1,10 @@
 import "../css/styles.css";
-import { setHome } from "./home.js";
+import { setAddTask } from "./add.js";
+import { setInbox } from "./inbox.js";
 
-const contentCtn = document.querySelector(".wrapping-ctn");
+const contentCtn = document.querySelector(".display-ctn");
 
-document.addEventListener("DOMContentLoaded", setHome(contentCtn));
-
-const ContainerObj = (function () {
-    
-})
+document.addEventListener("DOMContentLoaded", () => {
+    setInbox(contentCtn);
+    setAddTask();
+});

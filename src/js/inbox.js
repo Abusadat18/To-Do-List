@@ -1,41 +1,5 @@
-export function setHome(element) {
-    element.innerHTML = `<!-- SIDEBAR STARTS -->
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <img src="./img/Tawheed.JPG" alt="" width="40" height="40" />
-        <p class="user-name">User</p>
-      </div>
-
-      <div class="sidebar-inbox">
-        <img src="./img/inbox-logo.svg" alt="" width="40" height="40" />
-        <p class="inbox-text">Inbox</p>
-      </div>
-
-      <div class="sidebar-today">
-        <img src="./img/today-logo.svg" alt="" width="40" height="40" />
-        <p class="today-text">Today</p>
-      </div>
-
-      <div class="sidebar-myProjects">
-        <div>
-          <img src="./img/project-logo.svg" alt="" width="40" height="40" />
-          <p>My Projects</p>
-        </div>
-        <div class="myProjects-content">
-          <div class="project-card">
-            <p>#Home</p>
-            <img src="./img/delete-btn.svg" alt="" />
-          </div>
-        </div>
-      </div>
-      <div class="sidebar-createProject">
-        <img src="./img/add-normal.svg" alt="" />
-        <p>Create New Project</p>
-      </div>
-    </div>
-    <!-- SIDEBAR ENDS -->
-    <!-- DISPLAY CONTAINER STARTS-->
-    <div class="display-ctn">
+export function setInbox(element) {
+    element.innerHTML = `
       <div class="project-title">
         <h3>Index</h3>
       </div>
@@ -93,6 +57,5 @@ export function setHome(element) {
         <img src="./img/add-normal.svg" alt="" width="30" height="30" />
         <p>Add Task</p>
       </div>
-      <!-- ADD TASK BUTTON INSIDE DISPLAY CTN ENDS-->
-    </div>`
+    `
 };
