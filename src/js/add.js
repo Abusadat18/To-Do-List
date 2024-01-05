@@ -1,4 +1,4 @@
-import { displayAddTaskForm , cancelTaskForm ,addTaskFormBtn} from "./display.js";
+import { displayAddTaskForm , cancelTaskForm ,addTaskFormBtn,taskDeleteBtn} from "./display.js";
 
 function setAddTask() {
     const addTaskBtn = document.querySelector(".project-addTask");
@@ -12,4 +12,11 @@ function setAddFormListeners() {
     formAddTaskBtn.addEventListener("click", addTaskFormBtn);
 }
 
-export { setAddTask ,setAddFormListeners};
+function setDeleteBtns() {
+    const deleteBtns = document.querySelectorAll(".delete-btn");
+    deleteBtns.forEach((btn) => {
+        btn.addEventListener("click",taskDeleteBtn)
+    })
+}
+
+export { setAddTask ,setAddFormListeners,setDeleteBtns};

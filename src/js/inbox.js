@@ -4,7 +4,7 @@ export function setInbox(element) {
         <h3>Index</h3>
       </div>
         <!-- Task Card Begins -->
-        <div class="task-card">
+        <div class="task-card" data-key="1">
           <div class="task-checkbox">
             <input type="checkbox" name="" id="isTaskDone" />
           </div>

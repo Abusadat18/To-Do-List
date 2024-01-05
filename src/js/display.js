@@ -1,5 +1,5 @@
 import { setForm } from "./form.js";
-import { setAddFormListeners, setAddTask } from "./add.js";
+import { setAddFormListeners, setAddTask ,setDeleteBtns} from "./add.js";
 import { createTask , displayTaskCard } from "./tasks.js";
 
 function displayAddTaskForm() {
@@ -39,6 +39,13 @@ function addTaskFormBtn(e) {
     const newTask = createTask(name.value, description.value, dueDate.value, priority.value);
     displayTaskCard(newTask, formCtn);
     setAddTask();
+    setDeleteBtns();
 }
 
-export { displayAddTaskForm ,cancelTaskForm ,addTaskFormBtn ,displayAddTask};
+function taskDeleteBtn(e) {
+    const displayCtn = document.querySelector(".display-ctn");
+    const cardToDel = e.target.parentNode.parentNode.parentNode;
+    displayCtn.removeChild(cardToDel);
+}
+
+export { displayAddTaskForm ,cancelTaskForm ,addTaskFormBtn ,displayAddTask,taskDeleteBtn};
