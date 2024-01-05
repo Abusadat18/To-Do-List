@@ -106,13 +106,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* Inside Display Ctn > project-todos-ctn section starts */
-.project-todos-ctn {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
+/* Inside Display Ctn > task card section starts */
 .task-card {
   border: 2px solid var(--SECONDARY-COLOR);
   border-radius: 5px;

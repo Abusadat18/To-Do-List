@@ -12,6 +12,7 @@ function setForm(element) {
     <textarea
       name=""
       id=""
+      class="newTaskDesc"
       cols=""
       rows="4"
       placeholder="Task Description"
@@ -25,9 +26,9 @@ function setForm(element) {
       </div>
       <div>
         <select class="form-setPriority" name="" id="">
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
         </select>
       </div>
       <button type="button" class="form-newNote-btn">

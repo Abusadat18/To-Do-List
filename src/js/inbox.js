@@ -3,7 +3,6 @@ export function setInbox(element) {
       <div class="project-title">
         <h3>Index</h3>
       </div>
-      <div class="project-todos-ctn">
         <!-- Task Card Begins -->
         <div class="task-card">
           <div class="task-checkbox">
@@ -51,11 +50,12 @@ export function setInbox(element) {
           </div>
         </div>
         <!-- Task Card Ends -->
-      </div>
+      
       <!-- ADD TASK BUTTON INSIDE DISPLAY CTN STARTS-->
       <div class="project-addTask">
         <img src="./img/add-normal.svg" alt="" width="30" height="30" />
         <p>Add Task</p>
       </div>
+      <!-- ADD TASK BUTTON INSIDE DISPLAY CTN ENDS-->
     `
 };

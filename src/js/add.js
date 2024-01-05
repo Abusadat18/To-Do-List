@@ -1,4 +1,4 @@
-import { displayAddTaskForm , cancelTaskForm} from "./display.js";
+import { displayAddTaskForm , cancelTaskForm ,addTaskFormBtn} from "./display.js";
 
 function setAddTask() {
     const addTaskBtn = document.querySelector(".project-addTask");
@@ -7,7 +7,9 @@ function setAddTask() {
 
 function setAddFormListeners() {
     const cancelBtn = document.querySelector(".form-cancel-btn");
+    const formAddTaskBtn = document.querySelector(".form-add-btn");
     cancelBtn.addEventListener("click", cancelTaskForm);
+    formAddTaskBtn.addEventListener("click", addTaskFormBtn);
 }
 
 export { setAddTask ,setAddFormListeners};

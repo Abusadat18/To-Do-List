@@ -1,5 +1,6 @@
 import { setForm } from "./form.js";
-import { setAddFormListeners ,setAddTask } from "./add.js";
+import { setAddFormListeners, setAddTask } from "./add.js";
+import { createTask , displayTaskCard } from "./tasks.js";
 
 function displayAddTaskForm() {
     const addNewTaskBtn = document.querySelector(".project-addTask");
@@ -25,4 +26,19 @@ function cancelTaskForm(e) {
     setAddTask();
 }
 
-export { displayAddTaskForm ,cancelTaskForm};
+function addTaskFormBtn(e) {
+    e.stopPropagation();
+    const formCtn = document.querySelector(".add-form");
+    /* CONVERTING FORM CTN INTO TASK CARD */
+    formCtn.classList.remove("add-form");
+    formCtn.classList.add("task-card")
+    const name = document.querySelector(".newTaskName");
+    const description = document.querySelector(".newTaskDesc");
+    const dueDate = document.querySelector(".newDueDate");
+    const priority = document.querySelector(".form-setPriority");
+    const newTask = createTask(name.value, description.value, dueDate.value, priority.value);
+    displayTaskCard(newTask, formCtn);
+    setAddTask();
+}
+
+export { displayAddTaskForm ,cancelTaskForm ,addTaskFormBtn ,displayAddTask};
