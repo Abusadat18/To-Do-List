@@ -1,3 +1,6 @@
+import {createTask , displayTaskCard,displayAddTask,appendProjectAddTask,getTaskCardValues} from "./taskCard.js";
+import { setAddTask, setDeleteBtns, setModifyBtns } from "./listeners.js";
+
 function setForm(element) {
     element.innerHTML = `<div class="add-task-name">
     <input
@@ -48,4 +51,99 @@ function setForm(element) {
   </div>`
 };
 
-export { setForm };
+function setModifyForm(element) {
+    const taskObj = getTaskCardValues(element);
+    console.log(taskObj);
+    element.innerHTML = `<div class="add-task-name">
+    <input
+      type="text"
+      name=""
+      id="newTaskName"
+      class="newTaskName"
+      placeholder="Task Name"
+      value="${taskObj.name}"
+    />
+  </div>
+  <div class="add-task-description">
+    <textarea
+      name=""
+      id=""
+      class="newTaskDesc"
+      cols=""
+      rows="4"
+      placeholder="Task Description"
+    >${taskObj.description}</textarea>
+  </div>
+  <div class="add-task-additionals">
+    <div>
+      <div class="form-setDueDate">
+        <label for="newDueDate">Due Date:</label>
+        <input type="date" name="" id="newDueDate" class="newDueDate" value="${taskObj.dueDate}" />
+      </div>
+      <div>
+        <select class="form-setPriority" name="" id="">
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+      <button type="button" class="form-newNote-btn">
+        <img
+          src="./img/add-note-btn.svg"
+          alt=""
+          width="25"
+          height="25"
+        />
+        <p>Add Note</p>
+      </button>
+    </div>
+    <div>
+      <button class="form-cancel-btn" type="button">Cancel</button>
+      <button class="form-add-btn" type="button">Add Task</button>
+    </div>
+  </div>`;
+    setPriority(taskObj.priority);
+}
+
+function cancelTaskBtn(e) {
+    e.stopPropagation();
+    const formCtn = document.querySelector(".add-form");
+    /* REVERSING THE FORM BACK TO ADDD TASK DIV */
+    formCtn.classList.remove("add-form");
+    formCtn.classList.add("project-addTask");
+    displayAddTask(formCtn);
+    setAddTask();
+}
+
+function addTaskBtn(e) {
+    e.stopPropagation();
+    const formCtn = document.querySelector(".add-form");
+    /* CONVERTING FORM CTN INTO TASK CARD */
+    formCtn.classList.remove("add-form");
+    formCtn.classList.add("task-card")
+    const name = document.querySelector(".newTaskName");
+    const description = document.querySelector(".newTaskDesc");
+    const dueDate = document.querySelector(".newDueDate");
+    const priority = document.querySelector(".form-setPriority");
+    const newTask = createTask(name.value, description.value, dueDate.value, priority.value);
+    displayTaskCard(newTask, formCtn);
+    appendProjectAddTask();
+    setAddTask();
+    setDeleteBtns();
+    setModifyBtns();
+}
+
+function setPriority(value) {
+    const options = document.querySelector(".form-setPriority").querySelectorAll("option");
+    if (value === "High") {
+        options[0].setAttribute("selected", true);
+    }
+    else if (value === "Medium") {
+        options[1].setAttribute("selected", true);
+    }
+    else {
+        options[2].setAttribute("selected", true);
+    }
+}
+
+export { setForm ,setModifyForm,addTaskBtn,cancelTaskBtn,setPriority};
