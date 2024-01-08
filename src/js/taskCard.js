@@ -15,31 +15,23 @@ function displayTaskCard(taskObj,element) {
       ${taskObj.description}
     </p>
     <div class="task-additionals">
-      <div class="notes">
-        <img
-          src="./img/view-note-btn.svg"
-          alt=""
-          width="20"
-          height="20"
-        />
-      </div>
       <div class="priority">
-        <img src="./img/flag.svg" alt="" width="20" height="20" />
+        <img src="./img/flag.svg" alt="" width="25" height="25" />
         <p>${taskObj.priority}</p>
       </div>
       <div class="task-dueDate">
-        <img src="./img/due-date.svg" alt="" width="20" height="20" />
+        <img src="./img/due-date.svg" alt="" width="25" height="25" />
         <p>${taskObj.dueDate}</p>
       </div>
     </div>
   </div>
   <div class="task-operation">
-    <div class="add-note-btn">
+    <div class="view-note-btn">
       <img
-        src="./img/add-note-btn.svg"
-        alt=""
-        width="30"
-        height="30"
+      src="./img/view-btn.svg"
+      alt=""
+      width="30"
+      height="30"
       />
     </div>
     <div class="modify-btn">
@@ -117,6 +109,7 @@ function getTaskCardValues(element) {
 
     return { name, description, dueDate, priority };
 }
+
 
 
 export { createTask,displayAddTask ,appendProjectAddTask,displayTaskCard,taskDeleteBtn,taskModifyBtn,getTaskCardValues};

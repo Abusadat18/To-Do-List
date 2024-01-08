@@ -133,11 +133,6 @@ body {
   gap: 20px;
 }
 
-.notes {
-  display: flex;
-  align-items: center;
-}
-
 .priority {
   display: flex;
   align-items: center;
@@ -190,11 +185,6 @@ body {
   gap: 20px;
 }
 
-.form-newNote-btn {
-  display: flex;
-  align-items: center;
-}
-
 .add-task-name > input[type="text"] {
   width: 100%;
 }
@@ -209,7 +199,6 @@ body {
 .form-add-btn,
 .mod-form-cancel-btn,
 .mod-form-add-btn,
-.form-newNote-btn,
 .form-setPriority {
   padding: 5px;
   width: 110px;

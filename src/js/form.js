@@ -34,15 +34,6 @@ function setForm(element) {
           <option value="Low">Low</option>
         </select>
       </div>
-      <button type="button" class="form-newNote-btn">
-        <img
-          src="./img/add-note-btn.svg"
-          alt=""
-          width="25"
-          height="25"
-        />
-        <p>Add Note</p>
-      </button>
     </div>
     <div>
       <button class="form-cancel-btn" type="button">Cancel</button>
@@ -87,15 +78,6 @@ function setModifyForm(element) {
           <option value="Low">Low</option>
         </select>
       </div>
-      <button type="button" class="form-newNote-btn">
-        <img
-          src="./img/add-note-btn.svg"
-          alt=""
-          width="25"
-          height="25"
-        />
-        <p>Add Note</p>
-      </button>
     </div>
     <div>
       <button class="mod-form-cancel-btn" type="button">Cancel</button>
