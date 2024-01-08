@@ -98,8 +98,8 @@ function setModifyForm(element) {
       </button>
     </div>
     <div>
-      <button class="form-cancel-btn" type="button">Cancel</button>
-      <button class="form-add-btn" type="button">Add Task</button>
+      <button class="mod-form-cancel-btn" type="button">Cancel</button>
+      <button class="mod-form-add-btn" type="button">Add Task</button>
     </div>
   </div>`;
     setPriority(taskObj.priority);
@@ -151,4 +151,4 @@ function getFormValues(formCtn) {
     return { name, description, dueDate, priority };
 }
 
-export { setForm ,setModifyForm,addTaskBtn,cancelTaskBtn,setPriority};
+export { setForm ,setModifyForm,addTaskBtn,cancelTaskBtn,setPriority ,getFormValues};

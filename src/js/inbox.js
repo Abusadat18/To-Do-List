@@ -28,7 +28,7 @@ export function setInbox(element) {
               </div>
               <div class="task-dueDate">
                 <img src="./img/due-date.svg" alt="" width="20" height="20" />
-                <p>10 July 23</p>
+                <p>2024-01-20</p>
               </div>
             </div>
           </div>

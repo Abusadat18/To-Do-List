@@ -1,4 +1,4 @@
-import { setModifyForm  } from "./form.js";
+import { setModifyForm ,getFormValues } from "./form.js";
 import { setDeleteBtns,setModifyBtns } from "./listeners.js";
 
 const createTask = function (name, description, dueDate, priority) {
@@ -76,12 +76,14 @@ function taskModifyBtn(e) {
     cardToModify.classList.remove("task-card");
     cardToModify.classList.add("add-form");
     setModifyForm(cardToModify);
-    const modifyCancelBtn = cardToModify.querySelector(".form-cancel-btn");
-    const modifyAddBtn = cardToModify.querySelector(".form-add-btn");
+    const modifyCancelBtn = cardToModify.querySelector(".mod-form-cancel-btn");
+    const modifyAddBtn = cardToModify.querySelector(".mod-form-add-btn");
     modifyCancelBtn.addEventListener("click", (e) => {
       ModifyCancelBtnListener(e, taskObj, cardToModify);
     });
-    
+    modifyAddBtn.addEventListener("click", (e) => {
+      ModifyAddBtnListener(e, cardToModify);
+    })
 }
 
 function ModifyCancelBtnListener(e, taskObj, cardToModify) {
@@ -89,13 +91,23 @@ function ModifyCancelBtnListener(e, taskObj, cardToModify) {
     const formCtn = cardToModify;
     /* CONVERTING FORM CTN INTO TASK CARD */
     formCtn.classList.remove("add-form");
-    formCtn.classList.add("task-card")
+    formCtn.classList.add("task-card");
     displayTaskCard(taskObj, formCtn);
     setDeleteBtns();
     setModifyBtns();
 }
 
-function ModifyAddBtnListener(){}
+function ModifyAddBtnListener(e, cardToModify) {
+  e.stopPropagation();
+  const formCtn = cardToModify;
+  /* CONVERTING FORM CTN INTO TASK CARD */
+  formCtn.classList.remove("add-form");
+  formCtn.classList.add("task-card");
+  const taskObj = getFormValues(formCtn);
+  displayTaskCard(taskObj, formCtn);
+  setDeleteBtns();
+  setModifyBtns();
+}
 
 function getTaskCardValues(element) {
     const name = element.querySelector(".task-info h4").textContent;

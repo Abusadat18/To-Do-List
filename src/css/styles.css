@@ -207,6 +207,8 @@ body {
 
 .form-cancel-btn,
 .form-add-btn,
+.mod-form-cancel-btn,
+.mod-form-add-btn,
 .form-newNote-btn,
 .form-setPriority {
   padding: 5px;
@@ -219,6 +221,7 @@ body {
   padding: 4px;
 }
 
-.form-cancel-btn {
+.form-cancel-btn,
+.mod-form-cancel-btn {
   background-color: var(--PRIMARY-COLOR);
 }
