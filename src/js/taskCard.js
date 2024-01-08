@@ -77,16 +77,16 @@ function taskModifyBtn(e) {
     cardToModify.classList.add("add-form");
     setModifyForm(cardToModify);
     const modifyCancelBtn = cardToModify.querySelector(".form-cancel-btn");
+    const modifyAddBtn = cardToModify.querySelector(".form-add-btn");
     modifyCancelBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        ModifyCancelBtnListener(taskObj);
+      ModifyCancelBtnListener(e, taskObj, cardToModify);
     });
-    console.log(modifyCancelBtn);
-    console.log(cardToModify);
+    
 }
 
-function ModifyCancelBtnListener(taskObj) {
-    const formCtn = document.querySelector(".add-form");
+function ModifyCancelBtnListener(e, taskObj, cardToModify) {
+    e.stopPropagation();
+    const formCtn = cardToModify;
     /* CONVERTING FORM CTN INTO TASK CARD */
     formCtn.classList.remove("add-form");
     formCtn.classList.add("task-card")
@@ -94,6 +94,8 @@ function ModifyCancelBtnListener(taskObj) {
     setDeleteBtns();
     setModifyBtns();
 }
+
+function ModifyAddBtnListener(){}
 
 function getTaskCardValues(element) {
     const name = element.querySelector(".task-info h4").textContent;

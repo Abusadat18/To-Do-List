@@ -107,7 +107,7 @@ function setModifyForm(element) {
 
 function cancelTaskBtn(e) {
     e.stopPropagation();
-    const formCtn = document.querySelector(".add-form");
+    const formCtn = e.target.parentNode.parentNode.parentNode;
     /* REVERSING THE FORM BACK TO ADDD TASK DIV */
     formCtn.classList.remove("add-form");
     formCtn.classList.add("project-addTask");
@@ -117,15 +117,12 @@ function cancelTaskBtn(e) {
 
 function addTaskBtn(e) {
     e.stopPropagation();
-    const formCtn = document.querySelector(".add-form");
+    const formCtn = e.target.parentNode.parentNode.parentNode;
     /* CONVERTING FORM CTN INTO TASK CARD */
     formCtn.classList.remove("add-form");
     formCtn.classList.add("task-card")
-    const name = document.querySelector(".newTaskName");
-    const description = document.querySelector(".newTaskDesc");
-    const dueDate = document.querySelector(".newDueDate");
-    const priority = document.querySelector(".form-setPriority");
-    const newTask = createTask(name.value, description.value, dueDate.value, priority.value);
+    const formValue = getFormValues(formCtn);
+    const newTask = createTask(formValue.name, formValue.description, formValue.dueDate, formValue.priority);
     displayTaskCard(newTask, formCtn);
     appendProjectAddTask();
     setAddTask();
@@ -144,6 +141,14 @@ function setPriority(value) {
     else {
         options[2].setAttribute("selected", true);
     }
+}
+
+function getFormValues(formCtn) {
+    const name = formCtn.querySelector(".newTaskName").value;
+    const description = formCtn.querySelector(".newTaskDesc").value;
+    const dueDate = formCtn.querySelector(".newDueDate").value;
+    const priority = formCtn.querySelector(".form-setPriority").value;
+    return { name, description, dueDate, priority };
 }
 
 export { setForm ,setModifyForm,addTaskBtn,cancelTaskBtn,setPriority};
