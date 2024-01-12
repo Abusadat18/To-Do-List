@@ -100,6 +100,7 @@ body {
   flex-direction: column;
   margin-top: 50px;
   gap: 10px;
+  position: relative;
 }
 
 .project-title {
@@ -128,7 +129,8 @@ body {
   gap: 3px;
 }
 
-.task-additionals {
+.task-additionals,
+.view-additionals1 {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -149,6 +151,23 @@ body {
   display: flex;
   padding: 10px;
   gap: 20px;
+}
+
+.overlay {
+  border: 2px solid red;
+  width: 100%;
+  position: absolute;
+  padding: 25px;
+  top: 100px;
+  background-color: #ed7d31;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.overlay > div {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Inside Display Ctn > project-todos-ctn section ends */
@@ -200,7 +219,8 @@ body {
 .form-add-btn,
 .mod-form-cancel-btn,
 .mod-form-add-btn,
-.form-setPriority {
+.form-setPriority,
+.close-btn {
   padding: 5px;
   width: 110px;
   border-radius: 5px;
