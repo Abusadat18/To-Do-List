@@ -13,6 +13,7 @@ export function setInbox(element) {
             <p class="task-description">
               I am going to eat a red royal gala apple from the fridge
             </p>
+            <span class="hide">I am going to eat a red royal gala apple from the fridge</span>
             <div class="task-additionals">
               <div class="priority">
                 <img src="./img/flag.svg" alt="" width="25" height="25" />

@@ -12,8 +12,9 @@ function displayTaskCard(taskObj,element) {
   <div class="task-info">
     <h4>${taskObj.name}</h4>
     <p class="task-description">
-      ${taskObj.description}
+      ${minimizeDescription(taskObj.description)}
     </p>
+    <span class="hide">${taskObj.description}</span>
     <div class="task-additionals">
       <div class="priority">
         <img src="./img/flag.svg" alt="" width="25" height="25" />
@@ -103,11 +104,19 @@ function ModifyAddBtnListener(e, cardToModify) {
 
 function getTaskCardValues(element) {
     const name = element.querySelector(".task-info h4").textContent;
-    const description = element.querySelector(".task-description").textContent.trim();
+    const description = element.querySelector(".hide").textContent;
     const dueDate = element.querySelector(".task-dueDate p").textContent;
     const priority = element.querySelector(".priority p").textContent;
-
     return { name, description, dueDate, priority };
+}
+
+function minimizeDescription(text) {
+  if (text.length <= 75) {
+    return text;
+  } 
+  else {
+    return `${text.slice(0, 75)}...`;
+  }
 }
 
 

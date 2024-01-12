@@ -124,6 +124,7 @@ body {
 .task-info {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 3px;
 }
 
@@ -213,4 +214,8 @@ body {
 .form-cancel-btn,
 .mod-form-cancel-btn {
   background-color: var(--PRIMARY-COLOR);
+}
+
+.hide {
+  display: none;
 }
