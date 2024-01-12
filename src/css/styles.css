@@ -30,6 +30,10 @@ body {
   font-size: 20px;
 }
 
+.bg-dark {
+  background-color: hwb(22 93% 50%);
+}
+
 .wrapping-ctn {
   display: grid;
   grid-template-columns: 300px 1fr;

@@ -1,5 +1,6 @@
 import { setModifyForm ,getFormValues } from "./form.js";
-import { setDeleteBtns,setModifyBtns } from "./listeners.js";
+import { setDeleteBtns, setModifyBtns } from "./listeners.js";
+import { displayViewMode ,closeViewBtnListener} from "./view.js";
 
 const createTask = function (name, description, dueDate, priority) {
     return { name, description, dueDate, priority };
@@ -102,9 +103,19 @@ function ModifyAddBtnListener(e, cardToModify) {
   setModifyBtns();
 }
 
+function taskViewBtn(e) {
+  const selectedCard = e.currentTarget.parentNode.parentNode;
+  const taskObj = getTaskCardValues(selectedCard);
+  const viewCtn = document.querySelector(".overlay");
+  viewCtn.classList.remove("hide");
+  displayViewMode(viewCtn, taskObj);
+  const closeBtn = viewCtn.querySelector(".close-btn");
+  closeBtn.addEventListener("click", closeViewBtnListener);
+}
+
 function getTaskCardValues(element) {
     const name = element.querySelector(".task-info h4").textContent;
-    const description = element.querySelector(".hide").textContent;
+    const description = element.querySelector(".task-info > .hide").textContent;
     const dueDate = element.querySelector(".task-dueDate p").textContent;
     const priority = element.querySelector(".priority p").textContent;
     return { name, description, dueDate, priority };
@@ -121,4 +132,4 @@ function minimizeDescription(text) {
 
 
 
-export { createTask,displayAddTask ,appendProjectAddTask,displayTaskCard,taskDeleteBtn,taskModifyBtn,getTaskCardValues};
+export { createTask,displayAddTask ,appendProjectAddTask,displayTaskCard,taskDeleteBtn,taskModifyBtn,getTaskCardValues,taskViewBtn};

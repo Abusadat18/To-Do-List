@@ -50,24 +50,7 @@ export function setInbox(element) {
         <p>Add Task</p>
       </div>
       <!-- ADD TASK BUTTON INSIDE DISPLAY CTN ENDS-->
-      <div class="overlay">
-        <h4>Eat an Apple</h4>
-        <p>I am going to eat a red royal gala apple from the fridge</p>
-        <div>
-          <div class="view-additionals1">
-              <div class="priority">
-                <img src="./img/flag.svg" alt="" width="25" height="25" />
-                <p>High</p>
-              </div>
-              <div class="task-dueDate">
-                <img src="./img/due-date.svg" alt="" width="25" height="25" />
-                <p>2024-01-20</p>
-              </div>
-          </div>
-          <div class="view-additionals2">
-              <button class="close-btn" type="button">Close</button>
-          </div>
-        </div>
+      <div class="overlay hide">
       </div>
     `
 };

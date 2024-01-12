@@ -1,6 +1,6 @@
 import { displayAddTaskForm } from "./task.js";
 import { addTaskBtn as formAddTaskBtn,cancelTaskBtn as formCancelTaskBtn } from "./form.js";
-import { taskDeleteBtn,taskModifyBtn } from "./taskCard.js";
+import { taskDeleteBtn,taskModifyBtn,taskViewBtn } from "./taskCard.js";
 
 function setAddTask() {
     const addTaskBtn = document.querySelector(".project-addTask");
@@ -28,4 +28,11 @@ function setModifyBtns() {
     })
 }
 
-export { setAddTask ,setAddFormListeners,setDeleteBtns,setModifyBtns};
+function setViewBtns() {
+    const viewBtns = document.querySelectorAll(".view-note-btn");
+    viewBtns.forEach((btn) => {
+        btn.addEventListener("click",taskViewBtn)
+    })
+}
+
+export { setAddTask ,setAddFormListeners,setDeleteBtns,setModifyBtns,setViewBtns};
