@@ -1,5 +1,5 @@
 import { setModifyForm ,getFormValues } from "./form.js";
-import { setDeleteBtns, setModifyBtns } from "./listeners.js";
+import { setDeleteBtns, setModifyBtns,setViewBtns } from "./listeners.js";
 import { displayViewMode, closeViewBtnListener } from "./view.js";
 import { addBlur } from "./blur.js";
 
@@ -94,6 +94,7 @@ function ModifyCancelBtnListener(e, taskObj, cardToModify) {
     displayTaskCard(taskObj, formCtn);
     setDeleteBtns();
     setModifyBtns();
+    setViewBtns();
 }
 
 function ModifyAddBtnListener(e, cardToModify) {
@@ -106,6 +107,7 @@ function ModifyAddBtnListener(e, cardToModify) {
   displayTaskCard(taskObj, formCtn);
   setDeleteBtns();
   setModifyBtns();
+  setViewBtns();
 }
 
 function taskViewBtn(e) {
@@ -135,7 +137,5 @@ function minimizeDescription(text) {
     return `${text.slice(0, 75)}...`;
   }
 }
-
-
 
 export { createTask,displayAddTask ,appendProjectAddTask,displayTaskCard,taskDeleteBtn,taskModifyBtn,getTaskCardValues,taskViewBtn};
