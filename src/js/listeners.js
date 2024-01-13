@@ -1,6 +1,6 @@
 import { displayAddTaskForm } from "./task.js";
 import { addTaskBtn as formAddTaskBtn,cancelTaskBtn as formCancelTaskBtn } from "./form.js";
-import { taskDeleteBtn,taskModifyBtn,taskViewBtn } from "./taskCard.js";
+import { taskDeleteBtn,taskModifyBtn,taskViewBtn,taskCheckBox } from "./taskCard.js";
 
 function setAddTask() {
     const addTaskBtn = document.querySelector(".project-addTask");
@@ -35,4 +35,11 @@ function setViewBtns() {
     })
 }
 
-export { setAddTask ,setAddFormListeners,setDeleteBtns,setModifyBtns,setViewBtns};
+function setCheckBoxes() {
+    const checkBoxes = document.querySelectorAll("#isTaskDone");
+    checkBoxes.forEach((box) => {
+        box.addEventListener("click", taskCheckBox);
+    })
+}
+
+export { setAddTask ,setAddFormListeners,setDeleteBtns,setModifyBtns,setViewBtns,setCheckBoxes};

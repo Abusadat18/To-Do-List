@@ -1,7 +1,8 @@
 import { setModifyForm ,getFormValues } from "./form.js";
-import { setDeleteBtns, setModifyBtns,setViewBtns } from "./listeners.js";
+import { setCheckBoxes, setDeleteBtns, setModifyBtns,setViewBtns } from "./listeners.js";
 import { displayViewMode, closeViewBtnListener } from "./view.js";
 import { addBlur } from "./blur.js";
+import { checkTask } from "./checkTask.js";
 
 const createTask = function (name, description, dueDate, priority) {
     return { name, description, dueDate, priority };
@@ -95,6 +96,7 @@ function ModifyCancelBtnListener(e, taskObj, cardToModify) {
     setDeleteBtns();
     setModifyBtns();
     setViewBtns();
+    setCheckBoxes()
 }
 
 function ModifyAddBtnListener(e, cardToModify) {
@@ -108,6 +110,7 @@ function ModifyAddBtnListener(e, cardToModify) {
   setDeleteBtns();
   setModifyBtns();
   setViewBtns();
+  setCheckBoxes();
 }
 
 function taskViewBtn(e) {
@@ -138,4 +141,9 @@ function minimizeDescription(text) {
   }
 }
 
-export { createTask,displayAddTask ,appendProjectAddTask,displayTaskCard,taskDeleteBtn,taskModifyBtn,getTaskCardValues,taskViewBtn};
+function taskCheckBox(e) {
+  e.stopPropagation;
+  checkTask(e);
+}
+
+export { createTask,displayAddTask ,appendProjectAddTask,displayTaskCard,taskDeleteBtn,taskModifyBtn,getTaskCardValues,taskViewBtn,taskCheckBox};

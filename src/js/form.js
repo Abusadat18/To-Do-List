@@ -1,5 +1,5 @@
 import {createTask , displayTaskCard,displayAddTask,appendProjectAddTask,getTaskCardValues} from "./taskCard.js";
-import { setAddTask, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners.js";
+import { setAddTask, setCheckBoxes, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners.js";
 
 function setForm(element) {
     element.innerHTML = `<div class="add-task-name">
@@ -112,6 +112,7 @@ function addTaskBtn(e) {
     setDeleteBtns();
     setModifyBtns();
     setViewBtns();
+    setCheckBoxes();
 }
 
 function setPriority(value) {
