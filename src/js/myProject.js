@@ -62,6 +62,7 @@ function projectTickBtn(e) {
     const getProjectTitle = addProjectFormCtn.querySelector(".projectFormTitle").value;
     projectsCtn.appendChild(createNewProject(getProjectTitle));
     revertProjectForm(addProjectFormCtn);
+    setSidebarDeleteBtns();
 }
 
 function createNewProject(projectTitle) {
@@ -80,4 +81,18 @@ function displayAddProjectBtn(element) {
     <p>Create New Project</p>`;
 }
 
-export { setMyProjects ,setAddProject};
+function setSidebarDeleteBtns() {
+    const deleteBtns = document.querySelectorAll(".project-card > img");
+    deleteBtns.forEach((btn) => {
+        btn.addEventListener("click", ProjectDeleteBtn);
+    })
+}
+
+function ProjectDeleteBtn(e) {
+    e.stopPropagation();
+    const projectCard = e.currentTarget.parentNode;
+    const projectsCtn = document.querySelector(".myProjects-content");
+    projectsCtn.removeChild(projectCard);
+}
+
+export { setMyProjects ,setAddProject,setSidebarDeleteBtns};

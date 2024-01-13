@@ -1,7 +1,7 @@
 import "../css/styles.css";
 import { setAddTask ,setDeleteBtns, setModifyBtns,setViewBtns,setCheckBoxes } from "./listeners.js";
 import { setInbox } from "./inbox.js";
-import { setMyProjects ,setAddProject } from "./myProject.js";
+import { setMyProjects ,setAddProject ,setSidebarDeleteBtns} from "./myProject.js";
 
 const contentCtn = document.querySelector(".display-ctn");
 
@@ -14,4 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
     setCheckBoxes();
     setMyProjects();
     setAddProject();
+    setSidebarDeleteBtns();
 });
