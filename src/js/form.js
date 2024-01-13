@@ -136,4 +136,13 @@ function getFormValues(formCtn) {
     return { name, description, dueDate, priority };
 }
 
-export { setForm ,setModifyForm,addTaskBtn,cancelTaskBtn,setPriority ,getFormValues};
+function displayNewProjectForm(element) {
+    element.innerHTML = `
+    <input type="text" name="" id="projectFormTitle" class="projectFormTitle" placeholder="Project Title">
+    <div>
+        <img class="projectForm-cross" src="./img/tick.svg" alt="">
+        <img class="projectForm-tick" src="./img/cross.svg" alt="">
+    </div>`;
+}
+
+export { setForm ,setModifyForm,addTaskBtn,cancelTaskBtn,setPriority ,getFormValues,displayNewProjectForm};
