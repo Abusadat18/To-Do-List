@@ -30,10 +30,6 @@ body {
   font-size: 20px;
 }
 
-.bg-dark {
-  background-color: hwb(22 93% 50%);
-}
-
 .wrapping-ctn {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -103,8 +99,12 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  margin-bottom: 50px;
   gap: 10px;
-  position: relative;
+}
+
+.blur-bg {
+  filter: blur(2px);
 }
 
 .project-title {
@@ -157,16 +157,22 @@ body {
   gap: 20px;
 }
 
+.task-card-container {
+  position: relative;
+}
+
 .overlay {
-  border: 2px solid red;
+  border: 1px solid var(--SECONDARY-COLOR);
   width: 100%;
   position: absolute;
+  border-radius: 5px;
   padding: 25px;
-  top: 100px;
   background-color: #ed7d31;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  z-index: 10;
+  bottom: 0;
 }
 
 .overlay > div {

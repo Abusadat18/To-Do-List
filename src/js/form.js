@@ -1,5 +1,5 @@
 import {createTask , displayTaskCard,displayAddTask,appendProjectAddTask,getTaskCardValues} from "./taskCard.js";
-import { setAddTask, setDeleteBtns, setModifyBtns } from "./listeners.js";
+import { setAddTask, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners.js";
 
 function setForm(element) {
     element.innerHTML = `<div class="add-task-name">
@@ -99,10 +99,11 @@ function cancelTaskBtn(e) {
 
 function addTaskBtn(e) {
     e.stopPropagation();
-    const formCtn = e.target.parentNode.parentNode.parentNode;
+    const formCtn = e.currentTarget.parentNode.parentNode.parentNode;
+    console.log(formCtn);
     /* CONVERTING FORM CTN INTO TASK CARD */
     formCtn.classList.remove("add-form");
-    formCtn.classList.add("task-card")
+    formCtn.classList.add("task-card-container");
     const formValue = getFormValues(formCtn);
     const newTask = createTask(formValue.name, formValue.description, formValue.dueDate, formValue.priority);
     displayTaskCard(newTask, formCtn);
@@ -110,6 +111,7 @@ function addTaskBtn(e) {
     setAddTask();
     setDeleteBtns();
     setModifyBtns();
+    setViewBtns();
 }
 
 function setPriority(value) {

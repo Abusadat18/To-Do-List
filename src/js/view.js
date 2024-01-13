@@ -1,4 +1,6 @@
-function displayViewMode(element,taskObj) {
+import { removeBlur } from "./blur";
+
+function displayViewMode(element, taskObj) {
     element.innerHTML = `<h4>${taskObj.name}</h4>
     <p>${taskObj.description}</p>
     <div>
@@ -19,7 +21,9 @@ function displayViewMode(element,taskObj) {
 }
 
 function closeViewBtnListener(e) {
+    e.stopPropagation();
     const viewCtn = e.currentTarget.parentNode.parentNode.parentNode;
+    removeBlur();
     viewCtn.classList.add("hide");
 }
 

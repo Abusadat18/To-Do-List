@@ -4,41 +4,44 @@ export function setInbox(element) {
         <h3>Index</h3>
       </div>
         <!-- Task Card Begins -->
-        <div class="task-card" data-key="1">
-          <div class="task-checkbox">
-            <input type="checkbox" name="" id="isTaskDone" />
-          </div>
-          <div class="task-info">
-            <h4>Eat an Apple</h4>
-            <p class="task-description">
-              I am going to eat a red royal gala apple from the fridge
-            </p>
-            <span class="hide">I am going to eat a red royal gala apple from the fridge</span>
-            <div class="task-additionals">
-              <div class="priority">
-                <img src="./img/flag.svg" alt="" width="25" height="25" />
-                <p>High</p>
+        <div class="task-card-container">
+          <div class="overlay hide"></div>
+          <div class="task-card">
+            <div class="task-checkbox">
+              <input type="checkbox" name="" id="isTaskDone" />
+            </div>
+            <div class="task-info">
+              <h4>Eat an Apple</h4>
+              <p class="task-description">
+                I am going to eat a red royal gala apple from the fridge
+              </p>
+              <span class="hide">I am going to eat a red royal gala apple from the fridge</span>
+              <div class="task-additionals">
+                <div class="priority">
+                  <img src="./img/flag.svg" alt="" width="25" height="25" />
+                  <p>High</p>
+                </div>
+                <div class="task-dueDate">
+                  <img src="./img/due-date.svg" alt="" width="25" height="25" />
+                  <p>2024-01-20</p>
+                </div>
               </div>
-              <div class="task-dueDate">
-                <img src="./img/due-date.svg" alt="" width="25" height="25" />
-                <p>2024-01-20</p>
+            </div>
+            <div class="task-operation">
+              <div class="view-note-btn">
+                <img
+                  src="./img/view-btn.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
               </div>
-            </div>
-          </div>
-          <div class="task-operation">
-            <div class="view-note-btn">
-              <img
-                src="./img/view-btn.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
-            </div>
-            <div class="modify-btn">
-              <img src="./img/modify-btn.svg" alt="" width="30" height="30" />
-            </div>
-            <div class="delete-btn">
-              <img src="./img/delete-btn.svg" alt="" width="30" height="30" />
+              <div class="modify-btn">
+                <img src="./img/modify-btn.svg" alt="" width="30" height="30" />
+              </div>
+              <div class="delete-btn">
+                <img src="./img/delete-btn.svg" alt="" width="30" height="30" />
+              </div>
             </div>
           </div>
         </div>
@@ -50,7 +53,5 @@ export function setInbox(element) {
         <p>Add Task</p>
       </div>
       <!-- ADD TASK BUTTON INSIDE DISPLAY CTN ENDS-->
-      <div class="overlay hide">
-      </div>
     `
 };

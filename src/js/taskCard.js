@@ -1,13 +1,17 @@
 import { setModifyForm ,getFormValues } from "./form.js";
 import { setDeleteBtns, setModifyBtns } from "./listeners.js";
-import { displayViewMode ,closeViewBtnListener} from "./view.js";
+import { displayViewMode, closeViewBtnListener } from "./view.js";
+import { addBlur } from "./blur.js";
 
 const createTask = function (name, description, dueDate, priority) {
     return { name, description, dueDate, priority };
 };
 
 function displayTaskCard(taskObj,element) {
-    element.innerHTML = `<div class="task-checkbox">
+  element.innerHTML = `
+  <div class="overlay hide"></div>
+  <div class="task-card">  
+  <div class="task-checkbox">
     <input type="checkbox" name="" id="isTaskDone" />
   </div>
   <div class="task-info">
@@ -42,6 +46,7 @@ function displayTaskCard(taskObj,element) {
     <div class="delete-btn">
       <img src="./img/delete-btn.svg" alt="" width="30" height="30" />
     </div>
+  </div>
   </div>`;
 }
 
@@ -60,14 +65,14 @@ function appendProjectAddTask() {
 
 function taskDeleteBtn(e) {
     const displayCtn = document.querySelector(".display-ctn");
-    const cardToDel = e.target.parentNode.parentNode.parentNode;
+    const cardToDel = e.currentTarget.parentNode.parentNode.parentNode;
     displayCtn.removeChild(cardToDel);
 }
 
 function taskModifyBtn(e) {
-    const cardToModify = e.target.parentNode.parentNode.parentNode;
+    const cardToModify = e.currentTarget.parentNode.parentNode.parentNode;
     const taskObj = getTaskCardValues(cardToModify);
-    cardToModify.classList.remove("task-card");
+    cardToModify.classList.remove("task-card-container");
     cardToModify.classList.add("add-form");
     setModifyForm(cardToModify);
     const modifyCancelBtn = cardToModify.querySelector(".mod-form-cancel-btn");
@@ -85,7 +90,7 @@ function ModifyCancelBtnListener(e, taskObj, cardToModify) {
     const formCtn = cardToModify;
     /* CONVERTING FORM CTN INTO TASK CARD */
     formCtn.classList.remove("add-form");
-    formCtn.classList.add("task-card");
+    formCtn.classList.add("task-card-container");
     displayTaskCard(taskObj, formCtn);
     setDeleteBtns();
     setModifyBtns();
@@ -96,7 +101,7 @@ function ModifyAddBtnListener(e, cardToModify) {
   const formCtn = cardToModify;
   /* CONVERTING FORM CTN INTO TASK CARD */
   formCtn.classList.remove("add-form");
-  formCtn.classList.add("task-card");
+  formCtn.classList.add("task-card-container");
   const taskObj = getFormValues(formCtn);
   displayTaskCard(taskObj, formCtn);
   setDeleteBtns();
@@ -104,9 +109,10 @@ function ModifyAddBtnListener(e, cardToModify) {
 }
 
 function taskViewBtn(e) {
-  const selectedCard = e.currentTarget.parentNode.parentNode;
+  const selectedCard = e.currentTarget.parentNode.parentNode.parentNode;
   const taskObj = getTaskCardValues(selectedCard);
-  const viewCtn = document.querySelector(".overlay");
+  const viewCtn = selectedCard.querySelector(".overlay");
+  addBlur();
   viewCtn.classList.remove("hide");
   displayViewMode(viewCtn, taskObj);
   const closeBtn = viewCtn.querySelector(".close-btn");
