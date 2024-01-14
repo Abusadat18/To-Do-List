@@ -1,3 +1,5 @@
+import { createArr, storeAllTask } from "./storage";
+
 export function setInbox(element) {
     element.innerHTML = `
       <div class="project-title">
@@ -55,3 +57,15 @@ export function setInbox(element) {
       <!-- ADD TASK BUTTON INSIDE DISPLAY CTN ENDS-->
     `
 };
+
+function setViewInbox() {
+  const inboxBtn = document.querySelector(".sidebar-inbox");
+  
+}
+
+function saveInbox() {
+  createArr("inbox");
+  storeAllTask("inbox");
+}
+
+export { saveInbox };
