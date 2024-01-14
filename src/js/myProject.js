@@ -10,7 +10,7 @@ function setMyProjects() {
 
 function viewProject(e) {
     const displayCtn = document.querySelector(".display-ctn");
-    const title = document.querySelector(`.${e.currentTarget.className} > p`);
+    const title = e.currentTarget.querySelector("p");
     displayProject(displayCtn, title.textContent);
     setAddTask();
 }
@@ -63,6 +63,7 @@ function projectTickBtn(e) {
     projectsCtn.appendChild(createNewProject(getProjectTitle));
     revertProjectForm(addProjectFormCtn);
     setSidebarDeleteBtns();
+    setMyProjects();
 }
 
 function createNewProject(projectTitle) {
