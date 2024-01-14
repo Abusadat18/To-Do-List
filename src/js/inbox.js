@@ -1,7 +1,7 @@
 export function setInbox(element) {
     element.innerHTML = `
       <div class="project-title">
-        <h3>Index</h3>
+        <h3>Inbox</h3>
       </div>
         <!-- Task Card Begins -->
         <div class="task-card-container">
