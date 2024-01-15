@@ -32,5 +32,19 @@ function retrieveFromLocalStorage(key) {
     return value;
 }
 
-export { createArr, storeAllTask ,retrieveFromLocalStorage };
+function isKeyInLocalStorage(key) {
+    if (key in localStorage) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function allotMemory(key) {
+    createArr(key);
+    addToLocalStorage(key);
+}
+    
+export { createArr, storeAllTask ,retrieveFromLocalStorage,allotMemory };
 
