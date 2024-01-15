@@ -58,14 +58,9 @@ export function setInbox(element) {
     `
 };
 
-function setViewInbox() {
-  const inboxBtn = document.querySelector(".sidebar-inbox");
-  
-}
-
 function saveInbox() {
-  createArr("inbox");
-  storeAllTask("inbox");
+  createArr("Inbox");
+  storeAllTask("Inbox");
 }
 
 export { saveInbox };

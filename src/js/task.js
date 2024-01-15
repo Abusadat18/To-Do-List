@@ -1,6 +1,6 @@
 import { setForm } from "./form.js";
-import { setAddFormListeners} from "./listeners.js";
-
+import { setAddFormListeners } from "./listeners.js";
+import { displayTaskCard } from "./taskCard.js";
 
 function displayAddTaskForm(e) {
     const addNewTaskBtn = document.querySelector(".project-addTask");
@@ -11,4 +11,13 @@ function displayAddTaskForm(e) {
     setAddFormListeners();
 }
 
-export { displayAddTaskForm};
+function displayTaskContainer(taskObj) {
+    const displayCtn = document.querySelector(".display-ctn");
+    const taskCardCtn = document.createElement("div");
+    const projectAddTask = document.querySelector(".project-addTask");
+    taskCardCtn.classList.add("task-card-container");
+    displayTaskCard(taskObj, taskCardCtn);
+    displayCtn.insertBefore(taskCardCtn, projectAddTask);
+  }
+
+export { displayAddTaskForm,displayTaskContainer};

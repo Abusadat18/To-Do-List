@@ -1,11 +1,15 @@
 import { displayNewProjectForm } from "./form";
 import { setAddTask } from "./listeners";
+import { retrieveFromLocalStorage } from "./storage";
+import { displayTaskContainer } from "./task";
 
 function setMyProjects() {
     const projectCards = document.querySelectorAll(".project-card");
+    const inboxBtn = document.querySelector(".sidebar-inbox");
     projectCards.forEach((card) => {
         card.addEventListener("click", viewProject);
     })
+    inboxBtn.addEventListener("click", viewProject);
 }
 
 function viewProject(e) {
@@ -13,7 +17,16 @@ function viewProject(e) {
     const title = e.currentTarget.querySelector("p");
     displayProject(displayCtn, title.textContent);
     setAddTask();
+    viewTasks(title.textContent);
 }
+
+function viewTasks(key) {
+    const taskCards = retrieveFromLocalStorage(key);
+    console.log(taskCards);
+    taskCards.forEach((card) => {
+      displayTaskContainer(card);
+    })
+  }
 
 function displayProject(element,title) {
     element.innerHTML = `

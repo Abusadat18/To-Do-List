@@ -20,7 +20,6 @@ function storeAllTask(projectName) {
         pushObj(projectName, taskObj);
     })
     addToLocalStorage(projectName);
-    /* console.log(JSON.parse(localStorage.getItem(projectName))); */
 }
 
 function addToLocalStorage(key) {
@@ -28,7 +27,10 @@ function addToLocalStorage(key) {
     localStorage.setItem(key, value);
 }
 
+function retrieveFromLocalStorage(key) {
+    const value = JSON.parse(localStorage.getItem(key));
+    return value;
+}
 
-
-export { createArr, storeAllTask };
+export { createArr, storeAllTask ,retrieveFromLocalStorage };
 
