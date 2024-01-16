@@ -46,7 +46,6 @@ function setForm(element) {
 
 function setModifyForm(element) {
     const taskObj = getTaskCardValues(element);
-    console.log(taskObj);
     element.innerHTML = `<div class="add-task-name">
     <input
       type="text"
@@ -102,7 +101,6 @@ function cancelTaskBtn(e) {
 function addTaskBtn(e) {
     e.stopPropagation();
     const formCtn = e.currentTarget.parentNode.parentNode.parentNode;
-    console.log(formCtn);
     /* CONVERTING FORM CTN INTO TASK CARD */
     formCtn.classList.remove("add-form");
     formCtn.classList.add("task-card-container");

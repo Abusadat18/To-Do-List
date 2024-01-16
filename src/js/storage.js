@@ -67,6 +67,18 @@ function deleteATaskFromLocalS(key, name) {
 function deleteProjectFromLocalS(key) {
     localStorage.removeItem(key);
 }
+
+function modifyTaskFromLocalS(key, oldTaskName , newTaskObject) {
+    let value = retrieveFromLocalStorage(key);
+    value = value.map((taskObj) => {
+        if (taskObj.name === oldTaskName) {
+            return (taskObj = newTaskObject);
+        }
+        return taskObj;
+    })
+    replaceArray(key, value);
+    addToLocalStorage(key);
+}
     
 export { createArr, storeAllTask ,retrieveFromLocalStorage,allotMemory,isEmptyInLocalStorage ,pushObj,addToLocalStorage};
-export { allotIndividualTaskInLocalS ,deleteATaskFromLocalS,deleteProjectFromLocalS };
+export { allotIndividualTaskInLocalS ,deleteATaskFromLocalS,deleteProjectFromLocalS,modifyTaskFromLocalS };

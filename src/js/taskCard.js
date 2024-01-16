@@ -3,7 +3,7 @@ import { setCheckBoxes, setDeleteBtns, setModifyBtns,setViewBtns } from "./liste
 import { displayViewMode, closeViewBtnListener } from "./view.js";
 import { addBlur } from "./blur.js";
 import { checkTask } from "./checkTask.js";
-import { deleteATaskFromLocalS } from "./storage.js";
+import { deleteATaskFromLocalS, modifyTaskFromLocalS } from "./storage.js";
 import { getCurrentProjectName } from "./myProject.js";
 
 const createTask = function (name, description, dueDate, priority) {
@@ -86,7 +86,7 @@ function taskModifyBtn(e) {
       ModifyCancelBtnListener(e, taskObj, cardToModify);
     });
     modifyAddBtn.addEventListener("click", (e) => {
-      ModifyAddBtnListener(e, cardToModify);
+      ModifyAddBtnListener(e,taskObj ,cardToModify);
     })
 }
 
@@ -103,13 +103,14 @@ function ModifyCancelBtnListener(e, taskObj, cardToModify) {
     setCheckBoxes()
 }
 
-function ModifyAddBtnListener(e, cardToModify) {
+function ModifyAddBtnListener(e,oldTaskObj ,cardToModify) {
   e.stopPropagation();
   const formCtn = cardToModify;
   /* CONVERTING FORM CTN INTO TASK CARD */
   formCtn.classList.remove("add-form");
   formCtn.classList.add("task-card-container");
   const taskObj = getFormValues(formCtn);
+  modifyTaskFromLocalS(getCurrentProjectName(), oldTaskObj.name, taskObj);
   displayTaskCard(taskObj, formCtn);
   setDeleteBtns();
   setModifyBtns();
