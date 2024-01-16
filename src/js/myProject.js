@@ -86,6 +86,12 @@ function projectTickBtn(e) {
     revertProjectForm(addProjectFormCtn);
     setSidebarDeleteBtns();
     setMyProjects();
+    const displayCtn = document.querySelector(".display-ctn");
+    const projectCard = projectsCtn.lastElementChild;
+    displayProject(displayCtn, projectCard.firstElementChild.textContent);
+    setAddTask();
+    removeActiveClassForAll();
+    setActiveClass(projectCard)
 }
 
 function createNewProject(projectTitle) {
