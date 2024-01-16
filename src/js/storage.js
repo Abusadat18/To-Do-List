@@ -63,6 +63,10 @@ function deleteATaskFromLocalS(key, name) {
     replaceArray(key, value);
     addToLocalStorage(key);
 }
+
+function deleteProjectFromLocalS(key) {
+    localStorage.removeItem(key);
+}
     
 export { createArr, storeAllTask ,retrieveFromLocalStorage,allotMemory,isEmptyInLocalStorage ,pushObj,addToLocalStorage};
-export { allotIndividualTaskInLocalS ,deleteATaskFromLocalS };
+export { allotIndividualTaskInLocalS ,deleteATaskFromLocalS,deleteProjectFromLocalS };

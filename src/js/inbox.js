@@ -1,4 +1,6 @@
-import { createArr, storeAllTask } from "./storage";
+import { setAddTask, setCheckBoxes, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners";
+import { displayProject, removeActiveClassForAll, setActiveClass, viewTasks } from "./myProject";
+import { createArr, isEmptyInLocalStorage, storeAllTask } from "./storage";
 import { displayTaskContainer } from "./task";
 import { createTask } from "./taskCard";
 
@@ -23,4 +25,21 @@ function saveInbox() {
   storeAllTask("Inbox");
 }
 
-export { saveInbox };
+function displayInboxFromLocalS() {
+  const displayCtn = document.querySelector(".display-ctn");
+  const inboxCtn = document.querySelector(".sidebar-inbox");
+  const title = "Inbox";
+  removeActiveClassForAll();
+  setActiveClass(inboxCtn);
+  displayProject(displayCtn, title);
+  setAddTask();
+  if (!isEmptyInLocalStorage(title)) {
+    viewTasks(title);
+    setModifyBtns();
+    setDeleteBtns();
+    setViewBtns();
+    setCheckBoxes();
+  }
+}
+
+export { saveInbox,displayInboxFromLocalS };

@@ -1,6 +1,7 @@
 import { displayNewProjectForm } from "./form";
+import { displayInboxFromLocalS } from "./inbox";
 import { setAddTask, setCheckBoxes, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners";
-import { allotMemory, isEmptyInLocalStorage, retrieveFromLocalStorage } from "./storage";
+import { allotMemory, deleteProjectFromLocalS, isEmptyInLocalStorage, retrieveFromLocalStorage } from "./storage";
 import { displayTaskContainer } from "./task";
 
 function setMyProjects() {
@@ -30,7 +31,6 @@ function viewProject(e) {
 
 function viewTasks(key) {
     const taskCards = retrieveFromLocalStorage(key);
-    console.log(taskCards);
     taskCards.forEach((card) => {
             displayTaskContainer(card);
     })
@@ -121,6 +121,11 @@ function ProjectDeleteBtn(e) {
     e.stopPropagation();
     const projectCard = e.currentTarget.parentNode;
     const projectsCtn = document.querySelector(".myProjects-content");
+    const key = projectCard.firstElementChild.textContent;
+    deleteProjectFromLocalS(key);
+    if (projectCard.classList.contains("active")) {
+        displayInboxFromLocalS();
+    }
     projectsCtn.removeChild(projectCard);
 }
 
@@ -145,4 +150,4 @@ function removeActiveClassForAll() {
     }
 }
 
-export { setMyProjects ,setAddProject,setSidebarDeleteBtns,getCurrentProjectName};
+export { setMyProjects ,setAddProject,setSidebarDeleteBtns,getCurrentProjectName,removeActiveClassForAll,setActiveClass,displayProject,viewTasks};
