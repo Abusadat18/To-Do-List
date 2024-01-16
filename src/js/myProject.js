@@ -15,7 +15,8 @@ function setMyProjects() {
 function viewProject(e) {
     const displayCtn = document.querySelector(".display-ctn");
     const title = e.currentTarget.querySelector("p").textContent;
-    console.log(title);
+    removeActiveClassForAll();
+    setActiveClass(e.currentTarget);
     displayProject(displayCtn, title);
     setAddTask();
     if (!isEmptyInLocalStorage(title)) {
@@ -117,4 +118,25 @@ function ProjectDeleteBtn(e) {
     projectsCtn.removeChild(projectCard);
 }
 
-export { setMyProjects ,setAddProject,setSidebarDeleteBtns};
+function getCurrentProjectName() {
+    const nameCtn = document.querySelector(".active");
+    const projectName = nameCtn.querySelector("p").textContent;
+    return projectName;
+}
+
+function setActiveClass(element) {
+    element.classList.add("active");
+}
+
+function removeActiveClassForAll() {
+    const projectCards = document.querySelectorAll(".project-card");
+    const inboxBtn = document.querySelector(".sidebar-inbox");
+    inboxBtn.classList.remove("active");
+    if (projectCards) {
+        projectCards.forEach((card) => {
+            card.classList.remove("active");
+        })
+    }
+}
+
+export { setMyProjects ,setAddProject,setSidebarDeleteBtns,getCurrentProjectName};
