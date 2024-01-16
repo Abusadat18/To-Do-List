@@ -43,6 +43,11 @@ function allotMemory(key) {
     createArr(key);
     addToLocalStorage(key);
 }
+
+function allotIndividualTaskInLocalS(key,taskObj) {
+    pushObj(key, taskObj);
+    addToLocalStorage(key);
+}
     
 export { createArr, storeAllTask ,retrieveFromLocalStorage,allotMemory,isEmptyInLocalStorage ,pushObj,addToLocalStorage};
-
+export { allotIndividualTaskInLocalS };

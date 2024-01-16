@@ -1,5 +1,7 @@
 import {createTask , displayTaskCard,displayAddTask,appendProjectAddTask,getTaskCardValues} from "./taskCard.js";
 import { setAddTask, setCheckBoxes, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners.js";
+import { allotIndividualTaskInLocalS } from "./storage.js";
+import { getCurrentProjectName } from "./myProject.js";
 
 function setForm(element) {
     element.innerHTML = `<div class="add-task-name">
@@ -106,6 +108,7 @@ function addTaskBtn(e) {
     formCtn.classList.add("task-card-container");
     const formValue = getFormValues(formCtn);
     const newTask = createTask(formValue.name, formValue.description, formValue.dueDate, formValue.priority);
+    allotIndividualTaskInLocalS(getCurrentProjectName(), newTask);
     displayTaskCard(newTask, formCtn);
     appendProjectAddTask();
     setAddTask();
