@@ -12,6 +12,10 @@ function pushObj(name, taskObj) {
     Storage[name].push(taskObj);
 }
 
+function replaceArray(name, array) {
+    Storage[name] = array;
+}
+
 function storeAllTask(projectName) {
     const displayCtn = document.querySelector(".display-ctn");
     const taskCards = displayCtn.querySelectorAll(".task-card");
@@ -48,6 +52,17 @@ function allotIndividualTaskInLocalS(key,taskObj) {
     pushObj(key, taskObj);
     addToLocalStorage(key);
 }
+
+function deleteATaskFromLocalS(key, name) {
+    let value = retrieveFromLocalStorage(key);
+    value = value.filter((taskObj) => {
+        if (taskObj.name != name) {
+            return true;
+        }
+    })
+    replaceArray(key, value);
+    addToLocalStorage(key);
+}
     
 export { createArr, storeAllTask ,retrieveFromLocalStorage,allotMemory,isEmptyInLocalStorage ,pushObj,addToLocalStorage};
-export { allotIndividualTaskInLocalS };
+export { allotIndividualTaskInLocalS ,deleteATaskFromLocalS };

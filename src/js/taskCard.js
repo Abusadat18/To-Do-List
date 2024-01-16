@@ -3,6 +3,8 @@ import { setCheckBoxes, setDeleteBtns, setModifyBtns,setViewBtns } from "./liste
 import { displayViewMode, closeViewBtnListener } from "./view.js";
 import { addBlur } from "./blur.js";
 import { checkTask } from "./checkTask.js";
+import { deleteATaskFromLocalS } from "./storage.js";
+import { getCurrentProjectName } from "./myProject.js";
 
 const createTask = function (name, description, dueDate, priority) {
     return { name, description, dueDate, priority };
@@ -67,6 +69,8 @@ function appendProjectAddTask() {
 function taskDeleteBtn(e) {
     const displayCtn = document.querySelector(".display-ctn");
     const cardToDel = e.currentTarget.parentNode.parentNode.parentNode;
+    const taskTitle = getTaskCardValues(cardToDel.lastElementChild).name;
+    deleteATaskFromLocalS(getCurrentProjectName(), taskTitle);
     displayCtn.removeChild(cardToDel);
 }
 
