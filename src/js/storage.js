@@ -32,12 +32,10 @@ function retrieveFromLocalStorage(key) {
     return value;
 }
 
-function isKeyInLocalStorage(key) {
-    if (key in localStorage) {
-        return true;
-    }
-    else {
-        return false;
+function isEmptyInLocalStorage(key) {
+    if (localStorage.getItem(key) == "[]") {
+        console.log("hii");
+        return true; 
     }
 }
 
@@ -46,5 +44,5 @@ function allotMemory(key) {
     addToLocalStorage(key);
 }
     
-export { createArr, storeAllTask ,retrieveFromLocalStorage,allotMemory };
+export { createArr, storeAllTask ,retrieveFromLocalStorage,allotMemory,isEmptyInLocalStorage ,pushObj,addToLocalStorage};
 

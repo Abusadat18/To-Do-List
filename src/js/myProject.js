@@ -1,6 +1,6 @@
 import { displayNewProjectForm } from "./form";
 import { setAddTask, setCheckBoxes, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners";
-import { allotMemory, retrieveFromLocalStorage } from "./storage";
+import { allotMemory, isEmptyInLocalStorage, retrieveFromLocalStorage } from "./storage";
 import { displayTaskContainer } from "./task";
 
 function setMyProjects() {
@@ -15,23 +15,24 @@ function setMyProjects() {
 function viewProject(e) {
     const displayCtn = document.querySelector(".display-ctn");
     const title = e.currentTarget.querySelector("p").textContent;
+    console.log(title);
     displayProject(displayCtn, title);
     setAddTask();
-    viewTasks(title);
-    setModifyBtns();
-    setDeleteBtns();
-    setViewBtns();
-    setCheckBoxes();
+    if (!isEmptyInLocalStorage(title)) {
+        viewTasks(title);
+        setModifyBtns();
+        setDeleteBtns();
+        setViewBtns();
+        setCheckBoxes();
+    }
 }
 
 function viewTasks(key) {
     const taskCards = retrieveFromLocalStorage(key);
     console.log(taskCards);
-    if (taskCards.length != 0) {
-        taskCards.forEach((card) => {
+    taskCards.forEach((card) => {
             displayTaskContainer(card);
-        })
-    }
+    })
   }
 
 function displayProject(element,title) {
@@ -80,7 +81,7 @@ function projectTickBtn(e) {
     const projectsCtn = document.querySelector(".myProjects-content");
     const getProjectTitle = addProjectFormCtn.querySelector(".projectFormTitle").value;
     projectsCtn.appendChild(createNewProject(getProjectTitle));
-    allotMemory(getProjectTitle);
+    allotMemory(`#${getProjectTitle}`);
     revertProjectForm(addProjectFormCtn);
     setSidebarDeleteBtns();
     setMyProjects();
