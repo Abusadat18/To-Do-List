@@ -1,6 +1,6 @@
 import { displayNewProjectForm } from "./form";
 import { displayInboxFromLocalS } from "./inbox";
-import { setAddTask, setCheckBoxes, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners";
+import { setAddTask, setAllTaskOperation} from "./listeners";
 import { allotMemory, deleteProjectFromLocalS, isEmptyInLocalStorage, retrieveFromLocalStorage } from "./storage";
 import { displayTaskContainer } from "./task";
 
@@ -22,10 +22,7 @@ function viewProject(e) {
     setAddTask();
     if (!isEmptyInLocalStorage(title)) {
         viewTasks(title);
-        setModifyBtns();
-        setDeleteBtns();
-        setViewBtns();
-        setCheckBoxes();
+        setAllTaskOperation();
     }
 }
 

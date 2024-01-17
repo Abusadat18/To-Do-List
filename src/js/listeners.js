@@ -42,4 +42,12 @@ function setCheckBoxes() {
     })
 }
 
-export { setAddTask ,setAddFormListeners,setDeleteBtns,setModifyBtns,setViewBtns,setCheckBoxes};
+function setAllTaskOperation() {
+    setCheckBoxes();
+    setModifyBtns();
+    setDeleteBtns();
+    setViewBtns();
+}
+
+export { setAddTask, setAddFormListeners, setAllTaskOperation };
+

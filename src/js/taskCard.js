@@ -1,5 +1,5 @@
 import { setModifyForm ,getFormValues } from "./form.js";
-import { setCheckBoxes, setDeleteBtns, setModifyBtns,setViewBtns } from "./listeners.js";
+import { setAllTaskOperation } from "./listeners.js";
 import { displayViewMode, closeViewBtnListener } from "./view.js";
 import { addBlur } from "./blur.js";
 import { checkTask } from "./checkTask.js";
@@ -97,10 +97,7 @@ function ModifyCancelBtnListener(e, taskObj, cardToModify) {
     formCtn.classList.remove("add-form");
     formCtn.classList.add("task-card-container");
     displayTaskCard(taskObj, formCtn);
-    setDeleteBtns();
-    setModifyBtns();
-    setViewBtns();
-    setCheckBoxes()
+    setAllTaskOperation();
 }
 
 function ModifyAddBtnListener(e,oldTaskObj ,cardToModify) {
@@ -112,10 +109,7 @@ function ModifyAddBtnListener(e,oldTaskObj ,cardToModify) {
   const taskObj = getFormValues(formCtn);
   modifyTaskFromLocalS(getCurrentProjectName(), oldTaskObj.name, taskObj);
   displayTaskCard(taskObj, formCtn);
-  setDeleteBtns();
-  setModifyBtns();
-  setViewBtns();
-  setCheckBoxes();
+  setAllTaskOperation();
 }
 
 function taskViewBtn(e) {

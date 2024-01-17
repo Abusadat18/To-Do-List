@@ -1,5 +1,5 @@
 import {createTask , displayTaskCard,displayAddTask,appendProjectAddTask,getTaskCardValues} from "./taskCard.js";
-import { setAddTask, setCheckBoxes, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners.js";
+import { setAddTask, setAllTaskOperation } from "./listeners.js";
 import { allotIndividualTaskInLocalS } from "./storage.js";
 import { getCurrentProjectName } from "./myProject.js";
 
@@ -110,10 +110,7 @@ function addTaskBtn(e) {
     displayTaskCard(newTask, formCtn);
     appendProjectAddTask();
     setAddTask();
-    setDeleteBtns();
-    setModifyBtns();
-    setViewBtns();
-    setCheckBoxes();
+    setAllTaskOperation();
 }
 
 function setPriority(value) {
