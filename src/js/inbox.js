@@ -1,3 +1,4 @@
+import { convertDate, getTodayDate, incrementDate } from "./date";
 import { setAddTask, setCheckBoxes, setDeleteBtns, setModifyBtns, setViewBtns } from "./listeners";
 import { displayProject, removeActiveClassForAll, setActiveClass, viewTasks } from "./myProject";
 import { createArr, isEmptyInLocalStorage, storeAllTask } from "./storage";
@@ -14,10 +15,10 @@ export function setInbox(element) {
         <p>Add Task</p>
       </div>
     `;
-  displayTaskContainer(createTask("Fajr Salah", "The Prophet (ﷺ) said,The two Rakah before the dawn (Fajr) prayer are better than this world and all it contains.", "2024-01-20", "High"));
-  displayTaskContainer(createTask("Read Quran", "The Prophet (ﷺ) said, The best among you (Muslims) are those who learn the Quran and teach it.", "2024-01-20", "High"));
-  displayTaskContainer(createTask("Plan and Prepare Meals", "Take time to plan and prepare healthy meals for the day to ensure a balanced and nutritious diet.", "2024-01-15", "Medium"));
-  displayTaskContainer(createTask("Explore JavaScript Prototypes", "I'm diving into JavaScript prototypes to deepen my understanding of this crucial language feature. Starting with articles, tutorials, and official documentation, I'll cover prototype chains, constructor functions, and the prototype property. Through coding exercises and small projects, I'll apply my knowledge, engaging with online communities for support. Keeping a learning log, I aim to confidently integrate prototype-based patterns into my code by the due date.", "2024-02-28", "Medium"));
+  displayTaskContainer(createTask("Fajr Salah", "The Prophet (ﷺ) said,The two Rakah before the dawn (Fajr) prayer are better than this world and all it contains.", convertDate(getTodayDate()), "High"));
+  displayTaskContainer(createTask("Read Quran", "The Prophet (ﷺ) said, The best among you (Muslims) are those who learn the Quran and teach it.", convertDate(getTodayDate()), "High"));
+  displayTaskContainer(createTask("Plan and Prepare Meals", "Take time to plan and prepare healthy meals for the day to ensure a balanced and nutritious diet.", convertDate(getTodayDate()), "Medium"));
+  displayTaskContainer(createTask("Explore JavaScript Prototypes", "I'm diving into JavaScript prototypes to deepen my understanding of this crucial language feature. Starting with articles, tutorials, and official documentation, I'll cover prototype chains, constructor functions, and the prototype property. Through coding exercises and small projects, I'll apply my knowledge, engaging with online communities for support. Keeping a learning log, I aim to confidently integrate prototype-based patterns into my code by the due date.", incrementDate(5), "Medium"));
 };
 
 function saveInbox() {

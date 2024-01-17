@@ -262,6 +262,10 @@ body {
   background-color: var(--PRIMARY-COLOR);
 }
 
+.active {
+  color: #f6f1ee;
+}
+
 .hide {
   display: none;
 }
