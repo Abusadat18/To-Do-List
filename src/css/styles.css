@@ -144,6 +144,20 @@ body {
   justify-content: center;
 }
 
+.task-checkbox input[type="checkbox"],
+.delete-btn,
+.modify-btn,
+.view-note-btn,
+.project-addTask,
+.form-cancel-btn,
+.form-add-btn,
+.form-setPriority,
+.mod-form-cancel-btn,
+.mod-form-add-btn,
+.newDueDate {
+  cursor: pointer;
+}
+
 .task-info {
   display: flex;
   flex-direction: column;
