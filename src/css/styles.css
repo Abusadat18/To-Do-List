@@ -43,6 +43,8 @@ body {
   height: 100vh;
   padding: 15px;
   gap: 10px;
+  position: sticky;
+  top: 0px;
 }
 
 .sidebar-header {
@@ -120,7 +122,7 @@ body {
 }
 
 .blur-bg {
-  filter: blur(2px);
+  filter: blur(4px);
 }
 
 .project-title {
@@ -146,7 +148,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 8px;
 }
 
 .task-additionals,
@@ -178,12 +180,12 @@ body {
 }
 
 .overlay {
-  border: 1px solid var(--SECONDARY-COLOR);
+  border: 2px solid var(--SECONDARY-COLOR);
   width: 100%;
   position: absolute;
   border-radius: 5px;
   padding: 25px;
-  background-color: #ed7d31;
+  background-color: var(--PRIMARY-COLOR);
   display: flex;
   flex-direction: column;
   gap: 10px;

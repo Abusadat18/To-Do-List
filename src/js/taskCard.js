@@ -136,7 +136,7 @@ function minimizeDescription(text) {
     return text;
   } 
   else {
-    return `${text.slice(0, 75)}...`;
+    return `${text.slice(0, 70)}...`;
   }
 }
 
